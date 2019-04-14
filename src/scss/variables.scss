@@ -1,0 +1,101 @@
+// Базовые цвета https://colorscheme.ru/color-converter.html
+
+$black:                       hsl(0, 0%, 0%);
+$gray-darkest:                hsl(0, 0%, 10%);
+$gray-darker:                 hsl(0, 0%, 20%);
+$gray-darken:                 hsl(0, 0%, 30%);
+$gray-dark:                   hsl(0, 0%, 40%);
+$gray:                        hsl(0, 0%, 50%);
+$gray-light:                  hsl(0, 0%, 60%);
+$gray-lighten:                hsl(0, 0%, 70%);
+$gray-lighter:                hsl(0, 0%, 80%);
+$gray-lightest:               hsl(0, 0%, 90%);
+$white:                       hsl(0, 0%, 100%);
+
+$color-main:                  hsl(208, 98%, 43%);
+$color-success:               hsl(120, 39%, 54%);
+$color-danger:                hsl(2, 64%, 58%);
+$color-warning:               hsl(35, 84%, 62%);
+
+$color-vk:                    #4a76a8;
+$color-fb:                    #4267b2;
+$color-tw:                    #40A2F5;
+$color-gh:                    #24292e;
+
+
+
+// Семантические цвета
+
+$text-color:                  $gray-darkest;
+$text-color-muted:            $gray;
+$body-bg:                     $white;
+
+$link-color:                  $color-main;
+$link-color--hover:           darken($color-main, 15%);
+
+$border-color:                $gray-lighten;
+
+
+
+// Базовая типографика
+
+$font-size:                   16px;
+
+$font-size-h1:                40px;
+$font-size-h2:                32px;
+$font-size-h3:                24px;
+$font-size-h4:                18px;
+$font-size-h5:                16px;
+$font-size-h6:                16px;
+
+$font-size-sm:                0.75em; // 12px от 16px
+
+$line-height:                 1.5;
+
+$typo-margin-vertical:        1em;
+
+$font-family:                 -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-family--monospace:     SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+// Georgia, Times New Roman, Times, serif
+
+
+
+// Ширины
+
+$screen-xs:                   0;
+$screen-sm:                   480px;
+$screen-md:                   768px;
+$screen-lg:                   992px;
+$screen-xl:                   1200px;
+$screen-xxl:                  1800px;
+
+$container-sm:                100%;
+$container-md:                100%;
+$container-lg:                $screen-lg - 30;
+$container-xl:                $screen-xl - 30;
+$container-xxl:               $screen-xxl - 30;
+
+
+
+// Модульная сетка
+
+$grid-columns:                12;
+$grid-gutter-width:           30px;
+
+
+
+// Разное
+
+$field-padding-vertical:      5px;
+$field-padding-horizontal:    12px;
+
+$border-radius:               3px;
+$opacity:                     0.7;
+$transition-time:             0.3s;
+$shadow:                      0 4px 2px -2px rgba(0, 0, 0, 0.3);
+
+$menu-desktop-width:          $screen-lg;
+$toggler-part-height:         3px;
+$toggler-part-bg-color:       #000;
+
+$z-index-modal:               100;

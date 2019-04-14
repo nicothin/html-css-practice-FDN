@@ -1,0 +1,199 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+@import "../alert/alert.scss";
+@import "../baron/baron.scss";
+@import "../breadcrumbs/breadcrumbs.scss";
+@import "../btn/btn.scss";
+@import "../burger/burger.scss";
+@import "../close/close.scss";
+@import "../code/code.scss";
+@import "../comment/comment.scss";
+@import "../embed-responsive/embed-responsive.scss";
+@import "../field-actions/field-actions.scss";
+@import "../field-checkbox/field-checkbox.scss";
+@import "../field-file/field-file.scss";
+@import "../field-radio/field-radio.scss";
+@import "../field-range/field-range.scss";
+@import "../field-select/field-select.scss";
+@import "../field-text/field-text.scss";
+@import "../field-num/field-num.scss";
+@import "../field-toggler/field-toggler.scss";
+@import "../form/form.scss";
+@import "../label/label.scss";
+@import "../loader/loader.scss";
+@import "../logo/logo.scss";
+@import "../main-nav/main-nav.scss";
+@import "../modal/modal.scss";
+@import "../off-canvas/off-canvas.scss";
+@import "../or/or.scss";
+@import "../page/page.scss";
+@import "../page-footer/page-footer.scss";
+@import "../page-header/page-header.scss";
+@import "../pagination/pagination.scss";
+@import "../progress/progress.scss";
+@import "../sprite-png/sprite-png.scss";
+@import "../table/table.scss";
+@import "../table-responsive/table-responsive.scss";
+@import "../tabs/tabs.scss";
+@import "../social/social.scss";
+@import "../to-top/to-top.scss";
+@import "../object-fit-polyfill/object-fit-polyfill.scss";
+@import "../card/card.scss";
+@import "../../scss/print.scss";
+
+
+
+.blocks-library {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__title {
+    font-weight: 400;
+  }
+
+  &__item {
+    position: relative;
+    padding: 1rem;
+    border: 2px dashed $gray-lighter;
+    margin: 2.5rem 0;
+
+    @media (min-width: $screen-md) {
+      padding: 1.5rem 2rem 0.5rem 3rem;
+    }
+
+    &:before {
+      content: '.' attr(data-id);
+      position: absolute;
+      top: -1.2rem;
+      left: 0;
+      font-weight: 700;
+      text-transform: lowercase;
+      font-size: 1em;
+      line-height: 1;
+      height: 1em;
+      text-align: right;
+      white-space: nowrap;
+      color: $gray-lighter;
+
+      @media (min-width: $screen-md) {
+        left: 1.4rem;
+        top: 20.5rem;
+        width: 21rem;
+        transform: rotate(-90deg);
+        transform-origin: 0 100%;
+      }
+    }
+  }
+
+  &__item-title {
+    margin: 0 0 0.5rem;
+  }
+
+  &__item-title-link {
+    display: inline-block;
+    margin-right: 0.8rem;
+
+    svg {
+      display: block;
+      fill: $gray;
+    }
+  }
+
+  &__code-wrapper {
+    position: relative;
+  }
+
+  &__code-show-trigger {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-bottom: 0.3em;
+
+    @media (min-width: $screen-md) {
+      position: absolute;
+      top: -1.65rem;
+      left: -2.5rem;
+    }
+  }
+
+  &__code-icon {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: $gray-lighter;
+
+    &:before,
+    &:after {
+      position: absolute;
+      background-color: $gray-lighter;
+      width: 30px;
+      height: 3px;
+      left: 0;
+      content: '';
+    }
+
+    &:before {
+      top: 10px;
+    }
+
+    &:after {
+      top: 20px;
+    }
+  }
+
+  &__code {
+    overflow: hidden;
+
+    .js & {
+      max-height: 0;
+      transition-duration: $transition-time;
+      transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    }
+
+    .js &--shown {
+      transition-duration: $transition-time;
+      transition-timing-function: ease-in;
+      max-height: 1000px;
+    }
+
+    pre {
+      max-height: 800px;
+    }
+  }
+
+  &__menu-toggler {
+    position: fixed !important;
+    backface-visibility: hidden;
+    bottom: 0;
+    left: 0;
+    background-color: #000 !important;
+    width: 40px !important;
+    height: 40px;
+    padding: 5px !important;
+
+    .off-canvas--open & {
+      display: none;
+    }
+
+    & > span,
+    & > span:before,
+    & > span:after {
+      background-color: #fff !important;
+    }
+  }
+
+  &__row {
+    @include row();
+  }
+
+  &__col-1-2 {
+    @include col();
+    @include col(md, 6);
+  }
+
+  &__col-2-2 {
+    @include col();
+    @include col(md, 12);
+  }
+}

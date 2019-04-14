@@ -1,0 +1,74 @@
+// В этом файле должны быть стили для БЭМ-блока table-responsive, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, $media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.table-responsive {
+  width: 100%;
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+  border-collapse: collapse;
+  border: 1px solid $border-color;
+
+  caption {
+    caption-side: top;
+    text-align: left;
+    border: 1px solid $border-color;
+    border-bottom: 0;
+    padding: 0.4em $field-padding-horizontal;
+    font-size: $font-size-sm;
+    line-height: 1em;
+    color: $text-color-muted;
+  }
+
+  td,
+  th {
+    padding: $field-padding-vertical $field-padding-horizontal;
+    vertical-align: top;
+    border-bottom: 1px solid $border-color;
+
+    &:not(:first-child) {
+      border-left: 1px solid $border-color;
+    }
+  }
+
+  th {
+    text-align: inherit;
+  }
+
+  @media (max-width: ($screen-md - 1)) {
+    display: block;
+    border: 0;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+      width: 100%;
+
+      tr {
+        display: block;
+        border: 1px solid $border-color;
+        border-bottom: 0;
+
+        &:not(:last-child) { // stylelint-disable-line  max-nesting-depth
+          margin-bottom: 1em * $line-height;
+        }
+      }
+
+      td {
+        display: block;
+        width: 100%;
+        border-right: 0 !important; // stylelint-disable-line  declaration-no-important
+        border-left: 0 !important; // stylelint-disable-line  declaration-no-important
+
+        &:before { // stylelint-disable-line  max-nesting-depth
+          content: attr(data-label);
+          display: block;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

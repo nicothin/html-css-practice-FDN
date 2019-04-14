@@ -1,0 +1,103 @@
+// В этом файле должны быть стили для БЭМ-блока off-canvas, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+$off-canvas-width:            250px !default; // ширина этого блока
+
+.off-canvas {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  overflow: hidden;
+
+  .js &--open {
+
+    #{$block-name}__overlay {
+      position: fixed;
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity $transition-time ease;
+    }
+
+    #{$block-name}__close {
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #{$block-name}__aside {
+      transform: translateX(0);
+    }
+
+    #{$block-name}__page-content {
+      transform: translateX($off-canvas-width);
+    }
+  }
+
+  &__aside {
+    max-height: 30vh;
+    overflow-y: auto;
+    backface-visibility: hidden;
+    background-color: $gray-darkest;
+    color: #fff;
+    transition: transform $transition-time ease;
+
+    .js & {
+      position: fixed;
+      z-index: 2;
+      width: $off-canvas-width;
+      height: 100%;
+      max-height: none;
+      transform: translateX(($off-canvas-width * -1));
+    }
+  }
+
+  &__menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__menu-item {
+
+    &--separator {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $gray;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__menu-link {
+    display: block;
+    padding: 8px 14px;
+    line-height: 1.2;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      text-decoration: none;
+      background-color: $gray-darker;
+    }
+  }
+
+  &__page-content {
+    backface-visibility: hidden;
+    transition: transform $transition-time ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+  }
+}

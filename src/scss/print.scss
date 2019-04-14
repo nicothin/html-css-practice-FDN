@@ -1,0 +1,69 @@
+@media print {
+
+  *,
+  *:before,
+  *:after {
+    background: transparent !important; // stylelint-disable-line  declaration-no-important
+    color: #000 !important; // stylelint-disable-line  declaration-no-important
+    box-shadow: none !important; // stylelint-disable-line  declaration-no-important
+    text-shadow: none !important; // stylelint-disable-line  declaration-no-important
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline !important; // stylelint-disable-line  declaration-no-important
+  }
+
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999 !important; // stylelint-disable-line  declaration-no-important
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important; // stylelint-disable-line  declaration-no-important
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  table {
+    border-collapse: collapse !important; // stylelint-disable-line  declaration-no-important
+
+    td,
+    th {
+      background-color: #fff !important; // stylelint-disable-line  declaration-no-important
+    }
+  }
+}

@@ -1,0 +1,108 @@
+// В этом файле должны быть стили для БЭМ-блока field-toggler, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.field-toggler {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: block;
+  margin-bottom: $typo-margin-vertical;
+
+  &__title {
+    @include field-name;
+  }
+
+  &__input-wrap {
+
+    & + & {
+      margin-top: $typo-margin-vertical;
+    }
+
+    &--error {
+
+      #{$block-name}__name-text,
+      #{$block-name}__help-text {
+        color: $color-danger;
+      }
+
+      #{$block-name}__name-text:after {
+        background: $color-danger;
+      }
+    }
+  }
+
+  &__name {
+    display: inline-block;
+    position: relative;
+    padding-left: 3.2em;
+    margin-right: 0.6em;
+    font-weight: 400;
+    line-height: $line-height;
+  }
+
+  &__name-text {
+    display: inline-block;
+
+    @at-root input:disabled ~ & {
+      cursor: not-allowed;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 35px;
+      height: 18px;
+      background-color: #fff;
+      border: 1px solid $border-color;
+
+      @at-root input:focus ~ & {
+        @include field-focus;
+      }
+    }
+
+    @at-root input:disabled ~ &:before {
+      border-color: $gray-light;
+      background: $gray-lighter;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 2px;
+      width: 14px;
+      height: 14px;
+      background-color: $gray-lightest;
+      border: 1px solid $border-color;
+      transition: all 0.3s;
+    }
+
+    @at-root input:checked ~ &:after {
+      transform: translate(17px, 0);
+    }
+
+    @at-root input:disabled ~ &:after {
+      background-color: $gray-light;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  &__help-text-wrap {
+    padding-left: 3.2em;
+  }
+
+  &__help-text {
+    @include field-help-text;
+  }
+}

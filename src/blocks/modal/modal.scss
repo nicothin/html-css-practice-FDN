@@ -1,0 +1,139 @@
+// В этом файле должны быть стили для БЭМ-блока modal, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.js-modal-open {
+  overflow: hidden;
+}
+
+.modal {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: none;
+  position: fixed;
+  z-index: $z-index-modal;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  .js-modal-open & {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &__dialog {
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+    margin: 0;
+
+    @media (min-width: $screen-lg) {
+      width: 600px;
+      margin: auto;
+
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        padding: 2em 0;
+      }
+
+      #{$block-name}--open & {
+        animation: modal-content-show $transition-time 1 both;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    outline: 0;
+  }
+
+  &__header {
+    flex-shrink: 0;
+    padding: 0 40px 0 15px;
+  }
+
+  &__title {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: $font-size-h4;
+    line-height: 1.2;
+    font-weight: 700;
+    color: currentColor;
+  }
+
+  &__close {
+    position: absolute !important; // stylelint-disable-line  declaration-no-important
+    top: 5px;
+    right: 5px;
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: 0 15px;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+    padding: 15px;
+  }
+
+  &__backdrop {
+    position: fixed;
+    z-index: ($z-index-modal - 1);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, $opacity);
+
+    @media (min-width: $screen-lg) {
+      animation: modal-backdrop-show $transition-time 1;
+    }
+  }
+
+  &--open {
+
+    @media (min-width: $screen-lg) {
+      display: flex;
+      align-items: center;
+
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+
+
+@keyframes modal-backdrop-show {
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-content-show {
+
+  0% {
+    opacity: 0;
+    transform: translateY(-2em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

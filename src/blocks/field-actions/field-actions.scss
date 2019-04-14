@@ -1,0 +1,18 @@
+// В этом файле должны быть стили для БЭМ-блока field-actions, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.field-actions {
+  display: block;
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+
+  &__text {
+    display: block;
+    margin-top: $typo-margin-vertical;
+    margin-bottom: $typo-margin-vertical;
+    font-size: $font-size-sm;
+    color: $text-color-muted;
+    line-height: 1.2em;
+  }
+}

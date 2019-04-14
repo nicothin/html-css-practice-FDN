@@ -1,0 +1,183 @@
+// В этом файле должны быть стили для БЭМ-блока field-select, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.field-select {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: block;
+  margin-bottom: $typo-margin-vertical;
+
+  &__name {
+    @include field-name;
+  }
+
+  &__select-wrap {}
+
+  // Оформление штатного селекта
+  // &__select {
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   width: 100%;
+  //   line-height: $line-height;
+  //   padding: $field-padding-vertical $field-padding-horizontal;
+  //   padding-right: 35px;
+  //   font-size: inherit;
+  //   font-family: inherit;
+  //   border: 1px solid $border-color;
+  //   border-radius: $border-radius;
+  //   appearance: none;
+  //   background-color: #fff;
+
+  //   &[multiple] {
+  //     background-image: none;
+  //     min-height: 6.8em;
+  //   }
+
+  //   &::-ms-expand {
+  //     display: none;
+  //   }
+
+  //   &:active,
+  //   &:focus {
+  //     @include field-focus;
+  //   }
+
+  //   &[disabled],
+  //   &[readonly] {
+  //     cursor: default;
+  //     background-color: $gray-lightest;
+  //   }
+  // }
+
+  &__help-text {
+    @include field-help-text;
+  }
+
+
+
+  &--error {
+    color: $color-danger;
+
+    #{$block-name}__name,
+    #{$block-name}__select,
+    #{$block-name}__help-text {
+      color: $color-danger;
+    }
+
+    #{$block-name}__select,
+    .choices__inner,
+    .choices:after {
+      border-color: $color-danger;
+      background-color: lighten($color-danger, 35%);
+    }
+  }
+}
+
+
+
+/** @define choices */
+.choices {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+
+  &:focus {
+    outline: 0;
+
+    &:not(.is-disabled) {
+
+      #{$block-name}__inner {
+        @include field-focus;
+      }
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 16px;
+    width: 14px;
+    height: 14px;
+    border-left: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    pointer-events: none;
+    transform: rotate(-45deg);
+    transition: all 0.3s;
+  }
+
+  &.is-open:after {
+    transform: translateY(7px) rotate(135deg);
+  }
+
+  .is-hidden {
+    display: none;
+  }
+
+  &__inner {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: $field-padding-vertical 40px $field-padding-vertical $field-padding-horizontal;
+    background: #fff;
+    font-size: 1em;
+    line-height: 1.5;
+    cursor: pointer;
+
+    #{$block-name}__item--selectable {
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__list--dropdown {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -1px;
+    border: 1px solid $border-color;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    background-color: #fff;
+    word-break: break-all;
+
+    #{$block-name}__item {
+      padding: $field-padding-vertical $field-padding-horizontal;
+      cursor: pointer;
+
+      &.is-highlighted {
+        background: $gray-lightest;
+      }
+    }
+  }
+
+  &__heading {
+    padding: $field-padding-vertical $field-padding-horizontal;
+    font-size: $font-size-sm;
+    font-weight: 700;
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  &.is-open {
+
+    #{$block-name}__list--dropdown {
+      display: block;
+    }
+  }
+
+  &.is-disabled {
+
+    #{$block-name}__inner {
+      background-color: $gray-lighter;
+      cursor: default;
+    }
+  }
+}

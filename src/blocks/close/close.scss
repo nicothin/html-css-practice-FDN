@@ -1,0 +1,65 @@
+// В этом файле должны быть стили для БЭМ-блока close, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.close {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  border: none;
+  padding: 0;
+  line-height: 30px;
+  background: transparent;
+  user-select: none;
+  cursor: pointer;
+
+  span {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: $toggler-part-height;
+    vertical-align: middle;
+    font-size: 0;
+    color: transparent;
+    background: transparent;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: $toggler-part-height;
+      background: $toggler-part-bg-color;
+      transform-origin: 50% 50%;
+    }
+
+    &:before {
+      transform: rotate3d(0, 0, 1, 45deg);
+    }
+
+    &:after {
+      transform: rotate3d(0, 0, 1, -45deg);
+    }
+  }
+
+  // &--sm {
+
+  //   $toggler-part-height:     1px;
+
+  //   width: 30px;
+  //   line-height: 30px;
+
+  //   span {
+  //     width: 60%;
+
+  //     &:before,
+  //     &:after {
+  //       height: $toggler-part-height;
+  //       background: $toggler-part-bg-color;
+  //     }
+  //   }
+  // }
+}

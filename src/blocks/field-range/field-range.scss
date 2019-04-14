@@ -1,0 +1,107 @@
+// В этом файле должны быть стили для БЭМ-блока field-range, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.field-range {
+  display: block;
+  margin-bottom: $typo-margin-vertical;
+
+  &__name {
+    @include field-name;
+  }
+
+  &__input-wrap {
+    display: block;
+    position: relative;
+  }
+
+  &__input {
+    align-self: center;
+    width: 100%;
+    height: 2em;
+    border-radius: 0.25em;
+    border: 0;
+    padding: 0;
+    background: none;
+    font-size: inherit;
+    cursor: pointer;
+    appearance: none;
+
+    &::-webkit-slider-runnable-track,
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none; // stylelint-disable-line  property-no-vendor-prefix
+    }
+
+    &:focus {
+      @include field-focus;
+    }
+
+
+
+    // Фоновая линия ползунка
+
+    // Да, да, и это — локальная примесь.
+    @mixin field-range-runnable-track {
+      box-sizing: border-box;
+      width: 100%;
+      height: 0.75em;
+      border-radius: $border-radius;
+      background: #fff;
+      border: 1px solid $border-color;
+    }
+
+    // Увы, тут похожие наборы свойств приходится писать порознь.
+    &::-webkit-slider-runnable-track {
+      @include field-range-runnable-track; // локальная примесь!
+    }
+
+    &::-moz-range-track {
+      @include field-range-runnable-track; // локальная примесь!
+    }
+
+    &::-ms-track {
+      @include field-range-runnable-track; // локальная примесь!
+      color: transparent;
+    }
+
+
+    // Смещающийся элемент ползунка
+
+    // Да, да, и это — локальная примесь.
+    @mixin field-range-slider-thumb {
+      box-sizing: border-box;
+      width: 2em;
+      height: 2em;
+      border: 1px solid $border-color;
+      border-radius: 1em;
+      padding: 0;
+      box-shadow: none;
+      cursor: ew-resize;
+      background: $gray-lightest;
+    }
+
+    &::-webkit-slider-thumb {
+      @include field-range-slider-thumb; // локальная примесь!
+      margin-top: -0.68em;
+    }
+
+    &::-moz-range-thumb {
+      @include field-range-slider-thumb; // локальная примесь!
+    }
+
+    &::-ms-thumb {
+      @include field-range-slider-thumb; // локальная примесь!
+    }
+
+    &::-ms-fill-lower,
+    &::-ms-tooltip {
+      display: none;
+    }
+  }
+
+  &__help-text {
+    @include field-help-text;
+    padding-top: 0;
+  }
+}
+

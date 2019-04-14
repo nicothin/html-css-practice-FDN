@@ -1,0 +1,95 @@
+{
+  "name": "NTH-start-project",
+  "version": "4.0.0",
+  "description": "Startkit for HTML/CSS/JS pages layout.",
+  "author": "Nikolay Gromov",
+  "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicothin/NTH-start-project.git"
+  },
+  "scripts": {
+    "test": "npm run test:pug && npm run test:style && npm run test:js",
+    "test:pug": "glob-exec \"src/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\"",
+    "test:style": "stylelint \"src/**/*.scss\" --syntax=scss",
+    "test:js": "eslint src/blocks/**/*.js src/js/**/*.js",
+    "start": "gulp",
+    "wlib": "cross-env BUILD_LIBRARY=yes gulp",
+    "build": "gulp build",
+    "lint-staged": "lint-staged"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "lint-staged": {
+    "*.{js,pug,md}": "editorconfig-cli",
+    "*.pug": "pug-lint",
+    "*.scss": "stylelint --syntax=scss",
+    "*.js": "eslint"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@htmlacademy/editorconfig-cli": "^1.0.0",
+    "autoprefixer": "^9.3.1",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "browser-sync": "^2.18.8",
+    "cpy": "^7.0.1",
+    "cross-env": "^5.0.0",
+    "css-mqpacker": "^7.0.0",
+    "del": "^4.1.0",
+    "eslint": "^5.12.0",
+    "get-classes-from-html": "^1.0.1",
+    "gh-pages": "^2.0.1",
+    "glob-exec": "^0.1.1",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-pretty-html": "^2.0.9",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-svgmin": "^2.1.0",
+    "gulp-svgstore": "^7.0.0",
+    "gulp.spritesmith": "^6.3.0",
+    "husky": "^1.1.4",
+    "jstransformer-markdown-it": "^2.0.0",
+    "lint-staged": "^8.0.4",
+    "merge-stream": "^1.0.1",
+    "mkdirp": "^0.5.1",
+    "path": "^0.12.7",
+    "postcss-import": "^12.0.1",
+    "postcss-inline-svg": "^3.0.0",
+    "postcss-object-fit-images": "^1.1.2",
+    "pug-lint": "^2.5.0",
+    "stylelint": "^10.0.0",
+    "stylelint-order": "^2.0.0",
+    "stylelint-selector-bem-pattern": "^2.0.0",
+    "through2": "^3.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "webpack": "^4.27.1",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "autosize": "^4.0.2",
+    "baron": "^3.0.3",
+    "choices.js": "^7.0.0",
+    "closest": "0.0.1",
+    "jquery": "^3.1.1",
+    "object-fit-images": "^3.2.3",
+    "svg4everybody": "^2.1.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

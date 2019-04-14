@@ -1,0 +1,165 @@
+// В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.main-nav {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  z-index: 10;
+
+  // первый уровень
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    // мобильный вид списка
+    @media (max-width: ($menu-desktop-width - 1)) {
+
+      // открытие/закрытие меню только в случае работающего JS
+
+      .js & {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s;
+
+        &--lvl-2 {
+          max-height: none;
+        }
+      }
+
+      .js #{$block-name}--open & {
+        max-height: 1000px;
+        transition: max-height 0.6s;
+
+        &--lvl-2 {
+          max-height: none;
+        }
+      }
+    }
+
+    // настольный вид списка
+    @media (min-width: $menu-desktop-width) {
+      display: flex;
+      flex-wrap: wrap;
+
+      &--lvl-2 {
+        display: block;
+      }
+
+      &--lvl-3 {
+        display: block;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &--active {
+
+      & > #{$block-name}__link { // stylelint-disable-line  selector-combinator-blacklist
+        color: #000;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background-color: #fff;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background-color: $gray-lightest;
+    }
+
+    &--lvl-2 {
+      min-width: 200px;
+
+      @media (max-width: ($menu-desktop-width - 1)) {
+        padding-left: 2em;
+      }
+    }
+
+    &--lvl-3 {
+      min-width: 200px;
+
+      @media (max-width: ($menu-desktop-width - 1)) {
+        padding-left: 3em;
+      }
+    }
+  }
+
+  &__sublist-wrapper {
+
+    &--lvl-2 {
+
+      @media (min-width: $menu-desktop-width) {
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: opacity $transition-time;
+
+        // stylelint-disable
+        #{$block-name}__item--show-child > &,
+        #{$block-name}__item:hover & {
+          height: auto;
+          overflow: visible;
+          opacity: 1;
+        }
+        // stylelint-enable
+      }
+    }
+
+    &--lvl-3 {
+
+      @media (min-width: $menu-desktop-width) {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 100%;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: opacity $transition-time;
+
+        // stylelint-disable
+        #{$block-name}__item--show-child > &,
+        #{$block-name}__item--lvl-2:hover & {
+          height: auto;
+          overflow: visible;
+          opacity: 1;
+        }
+        // stylelint-enable
+      }
+    }
+  }
+
+
+
+  // переключатель
+
+  &__toggler {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    background: none;
+
+    @media (min-width: $menu-desktop-width) {
+      display: none;
+    }
+
+    .no-js & {
+      display: none;
+    }
+  }
+}

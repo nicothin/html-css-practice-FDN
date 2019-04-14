@@ -1,0 +1,21 @@
+extends ../pug/layout.pug
+
+block meta
+  title Главная
+  meta(name='description', content='')
+
+//- block append head
+//-   link(rel='stylesheet', href='css/some.css')
+
+block nav
+  +main-nav('10')
+
+block content
+  h1 Заголовок
+  p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].
+
+//- block footer
+//-   p footer
+
+//- block append page-bottom
+//-   script(src='js/some.js')

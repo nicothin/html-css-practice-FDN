@@ -1,0 +1,37 @@
+// В этом файле должны быть стили для БЭМ-блока table, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.table {
+  display: table;
+  width: 100%;
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+  border: 1px solid $border-color;
+  border-collapse: collapse;
+
+  td,
+  th {
+    padding: $field-padding-vertical $field-padding-horizontal;
+    vertical-align: top;
+    border-bottom: 1px solid $border-color;
+
+    &:not(:first-child) {
+      border-left: 1px solid $border-color;
+    }
+  }
+
+  th {
+    text-align: inherit;
+  }
+
+  // caption {
+  //   caption-side: top;
+  //   text-align: left;
+  //   padding: 0.4rem $field-padding-horizontal;
+  //   border-bottom: 1px solid $border-color;
+  //   font-size: $font-size-sm;
+  //   line-height: 1em;
+  //   color: $text-color-muted;
+  // }
+}
