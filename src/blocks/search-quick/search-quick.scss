@@ -1,0 +1,32 @@
+// В этом файле должны быть стили для БЭМ-блока search-quick, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.search-quick {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $text-color url('') center;
+    background-size: cover;
+
+    @media (min-width: $screen-xl) {
+      right: auto;
+      width: 50vw;
+    }
+  }
+}

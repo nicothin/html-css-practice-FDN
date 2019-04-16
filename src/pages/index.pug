@@ -11,8 +11,63 @@ block nav
   +main-nav('10')
 
 block content
-  h1 Заголовок
-  p Содержимое. #[a(href='blocks-demo.html') Библиотека блоков].
+  .promo
+    img.promo__primary-img(src='img/promo-img-01.png', alt='')
+    img.promo__second-img(src='img/promo-img-02.jpg', alt='')
+    a.info.promo__video(href='')
+      svg.info__icon(width='32', height='32')
+      .info__text Company video
+
+  section.services
+    .services__inner
+      header.services__header
+        h2.title.services__title Our services
+        .services__header-descr
+          p Our mission is to provide the highest level of service for our client-partners from concept through construction.
+      .services__carousel
+        .services__slide
+          .services__slide-left
+            section.service-card.service-card--img-left
+              .service-card__text
+                h2.title.title--sm Our services
+                .service-card__descr
+                  p Our mission is to provide the highest level of service for our client-partners from concept through construction.
+              .service-card__img-wrap
+                img.service-card__img(src='', alt='')
+            section.service-card.service-card--img-right
+              .service-card__text
+                h2.title.title--sm Our services
+                .service-card__descr
+                  p Our mission is to provide the highest level of service for our client-partners from concept through construction.
+              .service-card__img-wrap
+                img.service-card__img(src='', alt='')
+          .services__slide-right
+            section.service-card.service-card--img-top
+              .service-card__text
+                h2.title.title--sm Our services
+                .service-card__descr
+                  p Our mission is to provide the highest level of service for our client-partners from concept through construction.
+              .service-card__img-wrap
+                img.service-card__img(src='', alt='')
+
+  .page__home-actions
+    .page__home-actions-inner
+      a.info.info--bg-yellow(href='')
+        svg.info__icon(width='32', height='32')
+        .info__text Download price
+      a.info(href='')
+        svg.info__icon(width='32', height='32')
+        .info__text Contact us
+      form.search-quick
+        +field-text({
+          mods: 'transparent',
+          val: '',
+          attrs: {
+            type: 'search',
+            name: 'comment',
+            placeholder: 'What you\'re looking for',
+          }
+        })
 
 //- block footer
 //-   p footer

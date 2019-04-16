@@ -1,0 +1,23 @@
+//- Все примеси в этом файле должны начинаться c имени блока (service-card)
+
+mixin service-card(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +service-card('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' service-card--' + modsList[i].trim();
+      }
+    }
+
+  .service-card(class=allMods)&attributes(attributes)
+    .service-card__inner
+      block

@@ -42,6 +42,26 @@
     flex-grow: 1;
   }
 
+  &__home-actions-inner {
+
+    @media (min-width: $screen-md) {
+      display: flex;
+
+      .info {
+        width: 25%;
+      }
+
+      .search-quick {
+        width: 50%;
+      }
+    }
+
+    @media (min-width: $screen-xl) {
+      width: 1160px;
+      margin: auto;
+    }
+  }
+
   &__footer-wrapper {
     flex-shrink: 0;
   }
