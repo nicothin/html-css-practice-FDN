@@ -1,12 +1,11 @@
 {
-  "name": "NTH-start-project",
-  "version": "4.0.0",
+  "name": "FDN",
+  "version": "1.0.0",
   "description": "Startkit for HTML/CSS/JS pages layout.",
   "author": "Nikolay Gromov",
-  "license": "WTFPL",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicothin/NTH-start-project.git"
+    "url": "https://github.com/nicothin/html-css-practice-FDN"
   },
   "scripts": {
     "test": "npm run test:pug && npm run test:style && npm run test:js",
