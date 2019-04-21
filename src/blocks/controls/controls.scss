@@ -1,0 +1,48 @@
+// В этом файле должны быть стили для БЭМ-блока controls, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.controls {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+
+  &__prev {
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    // background: #ff0;
+  }
+
+  &__next {
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    // background: #ff0;
+  }
+
+  &__nums {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 10px;
+    line-height: 1;
+    color: $gray-darker;
+    letter-spacing: 0.25em;
+  }
+
+  &__first {
+    margin-right: 0.3em;
+    font-size: $font-size-h1;
+  }
+
+  &__second {
+    font-size: $font-size-h3 + 4;
+  }
+}

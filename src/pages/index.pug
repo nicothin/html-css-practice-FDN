@@ -69,6 +69,138 @@ block content
           }
         })
 
+  .page__block
+    .page__block-inner
+
+      section.review
+        h2.review__title Отзывы
+        .review__carousel
+          .review__slide
+            blockquote.review__item
+              img.review__avatar(src='', alt='')
+              .review__username Юзер Наме
+              .rate
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+              .review__text
+                p Далеко-далеко за словесными горами в стране, гласных и согласных живут.
+            blockquote.review__item.review__item--bg-accent
+              img.review__avatar(src='', alt='')
+              .review__username Юзер Наме 2
+              .rate
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+              .review__text
+                p Далеко-далеко за словесными горами в стране, гласных и согласных живут.
+        .review__line
+          .review__line-item
+            section.info
+              .info__inner
+                h2.info__title News
+                time.info__time(datatime='2019-04-21') 21 april 2019
+                a.info__link Long name of some news
+                .info__comments 12 comments
+          .review__line-item
+            blockquote.review__item
+              img.review__avatar(src='', alt='')
+              .review__username Юзер Наме
+              .rate
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+                span.rate__item
+                  svg(width='16', height='16')
+              .review__text
+                p Далеко-далеко за словесными горами в стране, гласных и согласных живут.
+
+      section.about-short
+        header.about-short__header
+          h2.title.about-short__title Your build in is in good hands
+          .about-short__descr
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis.
+          a.btn(href='') About company
+        ul.about-short__list
+          li.about-short__list-item
+            svg.about-short__icon(width='30', height='30')
+            p.about-short__text
+              strong.about-short__num 80 000
+              span.about-short__num-descr Dolorem ipsum
+          li.about-short__list-item(style='background-image:url(img/happy-developer.jpeg)')
+            svg.about-short__icon(width='30', height='30')
+            p.about-short__text
+              strong.about-short__num 80 000
+              span.about-short__num-descr Dolorem ipsum
+          li.about-short__list-item(style='background-image:url(img/happy-developer.jpeg)')
+            svg.about-short__icon(width='30', height='30')
+            p.about-short__text
+              strong.about-short__num 80 000
+              span.about-short__num-descr Dolorem ipsum
+          li.about-short__list-item
+            svg.about-short__icon(width='30', height='30')
+            p.about-short__text
+              strong.about-short__num 80 000
+              span.about-short__num-descr Dolorem ipsum
+
+      section.portfolio
+        .portfolio__inner
+          .portfolio__carousel-wrap
+            .portfolio__carousel
+              .portfolio__slide
+                .portfolio__slide-text
+                  h2.title.portfolio__title Portfolio
+                  .portfolio__text
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, animi?
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, animi?
+                  a.btn.btn--secondary(href='') View project
+                img.portfolio__slide-img(src='img/villa01.jpg', alt='')
+            .controls.portfolio__controls
+              button.controls__next(type='button')
+                svg(width='30', height='30')
+              .controls__nums
+                span.controls__first 01
+                span.controls__second / 999
+              button.controls__prev(type='button')
+                svg(width='30', height='30')
+          .portfolio__aside
+            a.info.info--bg-yellow(href='')
+              svg.info__icon(width='32', height='32')
+              .info__text Work with us
+            form.info(action='')
+              .info__inner
+                h2.title.title--invert Subscribe
+                +field-text({
+                  mods: 'transparent',
+                  val: '',
+                  attrs: {
+                    type: 'email',
+                    name: 'email',
+                    placeholder: 'E-mail',
+                  }
+                })
+                +field-actions()
+                  button.btn.btn--link Sign up
+
 //- block footer
 //-   p footer
 

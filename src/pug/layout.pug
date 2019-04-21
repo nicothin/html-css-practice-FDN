@@ -61,8 +61,23 @@ html(class='page  no-js', lang='ru')
       .page__footer-wrapper
         +page-footer()
           block footer
-            p «Подвал»
-            p Контактный телефон: #[a(href='tel:+70000000000') +7 000 000 00 00]
+            .page-footer__copyright 2019 © Develop company
+            nav.page-footer__nav
+              ul.page-footer__nav-list
+                li
+                  a(href='') Servise
+                li
+                  a(href='') Our works
+                li
+                  a(href='') News & events
+                li
+                  a(href='') Work with us
+                li
+                  a(href='') F.A.Q.
+                li
+                  a(href='') Contact us
+                li
+                  a(href='') Shop
 
     block page-bottom
       script(src='js/bundle.js')
