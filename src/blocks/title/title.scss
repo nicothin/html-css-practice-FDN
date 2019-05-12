@@ -1,0 +1,33 @@
+// В этом файле должны быть стили для БЭМ-блока title, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.title {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  margin: 0 0 15px;
+  padding: 0 0 20px;
+  font-size: $font-size-h2;
+  color: $gray-darker;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 40px;
+    background: $gray-darker;
+  }
+
+
+
+  &--sm {
+    font-size: $font-size-h3;
+    text-transform: none;
+  }
+}

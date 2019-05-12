@@ -5,4 +5,19 @@
 .services {
 
   $block-name:                &; // #{$block-name}__element
+
+  &__header {
+    padding: 10px;
+    background: #fff;
+  }
+
+  &__header-descr {
+    font-size: $font-size;
+    line-height: 1.571;
+    color: $gray-light;
+
+    p {
+      margin: 0;
+    }
+  }
 }
