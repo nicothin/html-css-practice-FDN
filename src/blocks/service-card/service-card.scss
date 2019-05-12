@@ -11,6 +11,13 @@
     flex-direction: column;
   }
 
+  &__slide {
+
+    @media (min-width: $screen-lg) {
+      //
+    }
+  }
+
   &__text {
     position: relative;
     padding: 10px;
@@ -98,7 +105,25 @@
     }
   }
 
-  &--img-left-tablet {}
+  &--img-left-tablet {
+
+    @media (min-width: $screen-md) and (max-width: $screen-lg) {
+
+      flex-direction: row-reverse;
+
+      #{$block-name}__img-wrap {
+
+        &:before {
+          top: 50%;
+          left: auto;
+          right: 0;
+          transform: translateY(-50%);
+          border-width: 10px 10px 10px 0;
+          border-color: transparent #fff transparent transparent;
+        }
+      }
+    }
+  }
 
   &--img-right {
 
